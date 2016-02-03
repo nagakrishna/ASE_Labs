@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.nagakrishna.ase_lab2.MainActivity">
+    <item
+        android:id="@+id/farenheitScale"
+        android:orderInCategory="100"
+        android:title="Farenheit scale"
+        app:showAsAction="never" />
+
+</menu>
