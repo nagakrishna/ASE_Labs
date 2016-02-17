@@ -1,0 +1,85 @@
+
+<style>
+
+    body{
+        background-color: lightblue;
+    }
+    input {
+        margin: 40px 25px;
+        width: 200px;
+        /*display: block;*/
+        border: none;
+        padding: 10px 0;
+        border-bottom: solid 1px #1abc9c;
+        -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+        transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
+        background-position: -200px 0;
+        background-size: 200px 100%;
+        background-repeat: no-repeat;
+        color: #0e6252;
+    }
+    input:focus, input:valid {
+        box-shadow: none;
+        outline: none;
+        background-position: 0 0;
+    }
+    input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
+        color: #1abc9c;
+        font-size: 11px;
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+        visibility: visible !important;
+    }
+    button {
+        border: none;
+        background: #1abc9c;
+        cursor: pointer;
+        border-radius: 3px;
+        padding: 6px;
+        width: 200px;
+        color: white;
+        margin-left: 25px;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+    }
+    button:hover {
+        -webkit-transform: translateY(-3px);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<body>
+
+<div class="wrapp" ng-controller="homeController" >
+
+    <div class="row">
+        <input type="text" placeholder="Start Location"  ng-model="startlocation" id="startlocation"/>
+        <input type="text" placeholder="End Location" ng-model="endlocation" id="endlocation" />
+        <button id="btn" ng-click="getWeather1(); getWeather2(); calcRoute()">
+            Get Direction and Weather
+        </button>
+        <br/></br>
+    </div>
+
+<div class="naga" style="width:100%;">
+    <div id="map-canvas" style="float:left; width:50%;height: 350px;width: 400px;"></div>
+
+    <div style="float:right; width:60%;">
+        <div class="weatherModule1" style="height: 100px; width: 200px; border: 1px dashed #ccc;
+        padding: 1em;">
+            <p class="currentConditions1" ng-bind-html="renderHtml(currentweather1)"></p>
+            <div class="currentIcon1" ng-bind-html="renderHtml(currentIcon1)"></div>
+        </div>
+
+        <div class="weatherModule2" style="height: 100px; width: 200px; border: 1px dashed #ccc;
+        padding: 1em;">
+            <p class="currentConditions2" ng-bind-html="renderHtml(currentweather2)"></p>
+            <div class="currentIcon2" ng-bind-html="renderHtml(currentIcon2)"></div>
+        </div>
+    </div>
+</div>
+</div>
+
+<body>
