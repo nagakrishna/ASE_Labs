@@ -44,6 +44,7 @@ ASE.controller('registerController', function($scope, $window, $localStorage){
     $scope.save = function() {
         $localStorage.name = $scope.name;
         $localStorage.password = $scope.password;
+        $localStorage.email = $scope.email;
     }
     $scope.register = function(){
         $window.location.href = "#/";

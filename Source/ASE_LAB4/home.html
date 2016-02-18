@@ -2,7 +2,7 @@
 <style>
 
     body{
-        background-color: lightblue;
+        background: url('http://www.denisdesigns.com/blog/wp-content/uploads/2009/07/woodbackground_tut_finalfull.jpg') no-repeat fixed center center;
     }
     input {
         margin: 40px 25px;
@@ -55,8 +55,9 @@
 <div class="wrapp" ng-controller="homeController" >
 
     <div class="row">
-        <input type="text" placeholder="Start Location"  ng-model="startlocation" id="startlocation"/>
-        <input type="text" placeholder="End Location" ng-model="endlocation" id="endlocation" />
+        <input type="text" placeholder="Start Location"  ng-model="startlocation" id="startlocation"
+        style="font-weight: 700; color: white"/>
+        <input type="text" placeholder="End Location" ng-model="endlocation" id="endlocation" style="font-weight: 700;color: white"/>
         <button id="btn" ng-click="getWeather1(); getWeather2(); calcRoute()">
             Get Direction and Weather
         </button>
@@ -64,18 +65,18 @@
     </div>
 
 <div class="naga" style="width:100%;">
-    <div id="map-canvas" style="float:left; width:50%;height: 350px;width: 400px;"></div>
+    <div id="map-canvas" style="float:left; width:50%;height: 350px;width: 450px;"></div>
 
     <div style="float:right; width:60%;">
-        <div class="weatherModule1" style="height: 100px; width: 200px; border: 1px dashed #ccc;
+        <div class="weatherModule1" style="height: 100px; width: 200px;
         padding: 1em;">
-            <p class="currentConditions1" ng-bind-html="renderHtml(currentweather1)"></p>
+            <p class="currentConditions1" ng-bind-html="renderHtml(currentweather1)" style="font-weight: 600; color: white" ></p>
             <div class="currentIcon1" ng-bind-html="renderHtml(currentIcon1)"></div>
         </div>
 
-        <div class="weatherModule2" style="height: 100px; width: 200px; border: 1px dashed #ccc;
+        <div class="weatherModule2" style="height: 100px; width: 200px;
         padding: 1em;">
-            <p class="currentConditions2" ng-bind-html="renderHtml(currentweather2)"></p>
+            <p class="currentConditions2" ng-bind-html="renderHtml(currentweather2)" style="font-weight: 600; color: white"></p>
             <div class="currentIcon2" ng-bind-html="renderHtml(currentIcon2)"></div>
         </div>
     </div>
