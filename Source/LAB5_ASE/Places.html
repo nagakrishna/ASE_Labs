@@ -1,0 +1,128 @@
+
+
+<style>
+
+    body {
+        background: url('http://p1.pichost.me/i/33/1563213.jpg') no-repeat fixed center center;
+        background-color: #665851;
+        background-size: cover;
+        font-size: 16px;
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+        margin: 0;
+        color: #666;
+    }
+    a {
+        text-decoration: none;
+    }
+
+
+    /*#input_place         {*/
+        /*margin-top: 40px;*/
+        /*font-size:18px;*/
+        /*padding:0px 10px 10px 5px;*/
+        /*display:block;*/
+        /*width:300px;*/
+        /*border:none;*/
+        /*border-bottom:1px solid #757575;*/
+    /*}*/
+
+    p{
+        margin-left: 25px;
+        font-weight: 700;
+        color: whitesmoke;
+    }
+    #input_place  {
+        margin: 5px 25px 20px 25px;
+        font-weight: 700;
+        color: whitesmoke;
+        width: 200px;
+        display: block;
+        border: none;
+        padding: 10px 0;
+        border-bottom: solid 1px #1abc9c;
+        -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+        transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
+        background-position: -200px 0;
+        background-size: 200px 100%;
+        background-repeat: no-repeat;
+        color: whitesmoke;
+    }
+
+    #input_place:focus, #input_place:valid {
+        box-shadow: none;
+        outline: none;
+        background-position: 0 0;
+    }
+    #map{
+        height:500px;
+        width:900px;
+        margin-left: 20px;
+        /*box-shadow: 3px 3px 10px gray;*/
+    }
+    #repeat{
+        display: inline;
+    }
+    #country_container {
+        width: 1000px;
+        margin: 13px 3px 3px 0px;
+        text-align: center;
+        width: 85px;
+        padding: 4px;
+        display: inline-table;
+        color: white;
+        background-color: black;
+        font-size: 12px;
+        cursor: pointer;
+        border: 1px solid black;
+        border-radius:13px;
+    }
+    #country_container:hover {
+        box-shadow: 0px 0px 10px black;
+        background-color: gray;
+        border: 1px solid gray;
+        cursor: pointer;
+    }
+    #names {
+        cursor: pointer;
+    }
+    #button {
+        border: none;
+        background: #1abc9c;
+        cursor: pointer;
+        border-radius: 3px;
+        padding: 6px;
+        width: 200px;
+        color: white;
+        margin-left: 25px;
+        margin-bottom: 20px;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+    }
+    #button:hover {
+        -webkit-transform: translateY(-3px);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+    }
+
+</style>
+
+<div  ng model="last_name" id="last_name"></div>
+<div>
+    <p>Enter the place to search farmer markets</p>
+    <input type="text"  ng-model="input_place"  id="input_place"/>
+    <br/>
+
+    <button id="button"  ng-click="GetPlaces()">Submit</button>
+
+    <div>
+        <!--<button ng-click="GoogleMaps()">Submit1</button>-->
+        <div id="map"></div>
+        <!--&lt;!&ndash;<div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">&ndash;&gt;-->
+        <!--<a id="country_container" href="#" ng-click="openInfoWindow($event, marker)">-->
+        <!--<label id="names" >{{marker.title}}</label></a>-->
+        <!--</div>-->
+    </div>
+</div>
+
