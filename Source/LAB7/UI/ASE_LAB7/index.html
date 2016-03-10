@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Venues">
+<head>
+    <meta charset="UTF-8">
+    <title>Venues</title>
+    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-animate.js"></script>
+    <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+    <script src="app.js"></script>
+
+    <style>
+        body{
+            background: url('http://www.freecreatives.com/wp-content/uploads/2015/03/6809725-simple-vintage-backgrounds.jpg') no-repeat fixed center center;
+        }
+        ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+            color:    midnightblue;
+            font-weight: 600;
+        }
+        #addCity, #updateValue, #tag
+        {
+            width: 220px;
+            height: 30px;
+            background: transparent;
+            border: 4px solid rgba(50,0,0,0.6);
+            border-radius: 4px;
+            color: #000000;
+            font-family: 'Exo', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 4px;
+        }
+
+        #selectedCity{
+            width: 235px;
+            height: 40px;
+            background: transparent;
+            border: 4px solid rgba(50,0,0,0.6);
+            border-radius: 4px;
+            color: #000000;
+            font-family: 'Exo', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 4px;
+        }
+        #submit, #updateButton, #createButton, #deleteButton{
+            width: 100px;
+            height: 40px;
+            background:burlywood;
+            border:  4px solid rgba(50,0,0,0.6);
+            cursor: pointer;
+            border-radius: 4px;
+            color: #000000;
+            font-family: 'Exo', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 6px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div ng-controller="loginController">
+
+    <div>
+        <h2 style="width: 1000px">Choose the City name to get farmer market details with Sentimental Analysis</h2>
+        <!--<input type="text" id="place" placeholder="Enter the place you want to search for"/>-->
+        <select ng-model="selectedCity.city" id="selectedCity"  value="{{operator.city.label}}" ng-options="operator.city as operator.city for operator in operators">Choose cities</select>
+        <button id="submit" ng-click="getSentiment()">Submit</button>
+    </div>
+    <!--<div id="place1">-->
+        <!--&lt;!&ndash;<select ng-model="selectedCity.city" id="selectedCity"  value="{{operator.city.label}}" ng-options="operator.city as operator.city for operator in operators">Choose cities</select>&ndash;&gt;-->
+        <!--&lt;!&ndash;<button ng-click="update()">Submit</button>&ndash;&gt;-->
+    <!--</div>-->
+    <div>
+        <input type="text" id="updateValue" placeholder="Enter new name">
+        <button id="updateButton" ng-click="update()">Update</button>
+    </div>
+
+    <div>
+        <input type="text" id="addCity" ng-model="user.city" placeholder="Enter City to Add">
+        <button id="createButton" ng-click="createCity(user)">Create</button>
+    </div>
+    <div>
+        <!--<input type="text" id="deleteValue" placeholder="Enter the city name to delete">-->
+        <button id="deleteButton"  ng-click="delete()">Delete</button>
+        <h3 style="width: 250px; display: inline">Delete {{selected}}  </h3>
+
+    </div>
+
+    <div style="width: 30%">
+    <div id="div_ReviewList1" style="display:none;" >
+        <p ng-model="ReviewWithSentiment1">
+        <TABLE BORDER=2 CELLPADDING=4> <TR> <TH style="color: aliceblue" COLSPAN=2 BGCOLOR="#b8860b">Sentiment Analysis of Market</TH> </TR>
+            <TR> <TD>Market Name</TD> <TD>{{ReviewWithSentiment1.venue}}</TD> </TR>
+            <TR> <TD>Market Review</TD> <TD>{{ReviewWithSentiment1.review}}</TD> </TR>
+            <TR> <TD>Sentiment Score</TD> <TD>{{ReviewWithSentiment1.score}}</TD> </TR>
+            <TR> <TD>Sentiment Type</TD> <TD>{{ReviewWithSentiment1.type}}</TD> </TR>
+
+        </TABLE>
+        </p>
+    </div>
+
+    <div id="div_ReviewList2" style="display:none;" >
+        <p ng-model="ReviewWithSentiment2">
+        <TABLE BORDER=2 CELLPADDING=4> <TR> <TH style="color: aliceblue" COLSPAN=2 BGCOLOR="#b8860b">Sentiment Analysis of Market</TH> </TR>
+            <TR> <TD>Market Name</TD> <TD>{{ReviewWithSentiment2.venue}}</TD> </TR>
+            <TR> <TD>Market Review</TD> <TD>{{ReviewWithSentiment2.review}}</TD> </TR>
+            <TR> <TD>Sentiment Score</TD> <TD>{{ReviewWithSentiment2.score}}</TD> </TR>
+            <TR> <TD>Sentiment Type</TD> <TD>{{ReviewWithSentiment2.type}}</TD> </TR>
+
+        </TABLE>
+        </p>
+    </div>
+
+    <div id="div_ReviewList3" style="display:none;" >
+        <p ng-model="ReviewWithSentiment3">
+        <TABLE BORDER=2 CELLPADDING=4> <TR> <TH style="color: aliceblue" COLSPAN=2 BGCOLOR="#b8860b">Sentiment Analysis of Market</TH> </TR>
+            <TR> <TD>Market Name</TD> <TD>{{ReviewWithSentiment3.venue}}</TD> </TR>
+            <TR> <TD>Market Review</TD> <TD>{{ReviewWithSentiment3.review}}</TD> </TR>
+            <TR> <TD>Sentiment Score</TD> <TD>{{ReviewWithSentiment3.score}}</TD> </TR>
+            <TR> <TD>Sentiment Type</TD> <TD>{{ReviewWithSentiment3.type}}</TD> </TR>
+
+        </TABLE>
+        </p>
+    </div>
+
+    <div id="div_ReviewList4" style="display:none;" >
+        <p ng-model="ReviewWithSentiment4">
+        <TABLE BORDER=2 CELLPADDING=4> <TR> <TH style="color: aliceblue" COLSPAN=2 BGCOLOR="#b8860b">Sentiment Analysis of Market</TH> </TR>
+            <TR> <TD>Market Name</TD> <TD>{{ReviewWithSentiment4.venue}}</TD> </TR>
+            <TR> <TD>Market Review</TD> <TD>{{ReviewWithSentiment4.review}}</TD> </TR>
+            <TR> <TD>Sentiment Score</TD> <TD>{{ReviewWithSentiment4.score}}</TD> </TR>
+            <TR> <TD>Sentiment Type</TD> <TD>{{ReviewWithSentiment4.type}}</TD> </TR>
+
+        </TABLE>
+        </p>
+    </div>
+
+    <div id="div_ReviewList5" style="display:none;" >
+        <p ng-model="ReviewWithSentiment5">
+        <TABLE BORDER=2 CELLPADDING=4> <TR> <TH style="color: aliceblue" COLSPAN=2 BGCOLOR="#b8860b">Sentiment Analysis of Market</TH> </TR>
+            <TR> <TD>Market Name</TD> <TD>{{ReviewWithSentiment5.venue}}</TD> </TR>
+            <TR> <TD>Market Review</TD> <TD>{{ReviewWithSentiment5.review}}</TD> </TR>
+            <TR> <TD>Sentiment Score</TD> <TD>{{ReviewWithSentiment5.score}}</TD> </TR>
+            <TR> <TD>Sentiment Type</TD> <TD>{{ReviewWithSentiment5.type}}</TD> </TR>
+
+        </TABLE>
+        </p>
+    </div>
+    </div>
+</div>
+
+</body>
+</html>
