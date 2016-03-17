@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    
+    <style>
+    
+          body{
+            background: url('http://www.freecreatives.com/wp-content/uploads/2015/03/6809725-simple-vintage-backgrounds.jpg') no-repeat fixed center center;
+        }
+        ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+            color:    midnightblue;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body ng-app="starter">
+
+<ion-pane ng-controller='homeController'>
+    <ion-header-bar class="bar-stable">
+        <h1 class="title">Farmer Market Details with Sentimental Analysis</h1>
+    </ion-header-bar>
+    <ion-content>
+        <label class="item item-input">
+
+            <input placeholder="Enter City name to get sentimental analysis" id="city" type="text">
+        </label>
+        <button style="display: inline-block" id="submit" ng-click="submit1()">Submit</button>
+        <ion-list>
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap">
+
+                <h2>Name: {{chat.id}}</h2>
+                <h2>Review: {{chat.lastText}}</h2>
+                <h2>Score: {{chat.name}}</h2>
+                <h2>Type: {{chat.face}}</h2>
+
+
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-pane>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/Users/Naga Krishna/Ionic/login/platforms/android/assets/www/lib/ionic/js/angular-ui/angular-ui-router.min.js",
+        "C:/Users/Naga Krishna/Ionic/login/plugins/cordova-plugin-console/tests/tests.js",
+        "C:/Users/Naga Krishna/Ionic/login/plugins/cordova-plugin-console/www/console-via-logger.js",
+        "C:/Users/Naga Krishna/Ionic/login/plugins/cordova-plugin-device/src/tizen/DeviceProxy.js",
+        "C:/Users/Naga Krishna/Ionic/login/plugins/cordova-plugin-device/src/ubuntu/device.js",
+        "C:/Users/Naga Krishna/Ionic/login/plugins/cordova-plugin-device/src/windows/DeviceProxy.js",
+        "C:/Users/Naga Krishna/Ionic/login/plugins/cordova-plugin-console/www/logger.js",
+        "C:/Users/Naga Krishna/Ionic/login/plugins/cordova-plugin-device/www/device.js",
+        "C:/Users/Naga Krishna/Ionic/login/plugins/cordova-plugin-device/src/blackberry10/index.js",
+        "C:/Users/Naga Krishna/Ionic/login/plugins/cordova-plugin-splashscreen/src/browser/SplashScreenProxy.js",
+        "C:/Users/Naga Krishna/Ionic/login/plugins/cordova-plugin-device/src/browser/DeviceProxy.js",
+        "C:/Users/Naga Krishna/Ionic/login/plugins/cordova-plugin-splashscreen/tests/tests.js",
+        "C:/Users/Naga Krishna/Ionic/login/plugins/cordova-plugin-device/src/firefoxos/DeviceProxy.js",
+        "C:/Users/Naga Krishna/Ionic/login/plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+        "C:/Users/Naga Krishna/Ionic/login/plugins/cordova-plugin-device/tests/tests.js",
+        "C:/Users/Naga Krishna/Ionic/login/plugins/cordova-plugin-splashscreen/src/blackberry10/index.js",
+        "C:/Users/Naga Krishna/Ionic/login/plugins/cordova-plugin-splashscreen/src/tizen/SplashScreenProxy.js",
+        "C:/Users/Naga Krishna/Ionic/login/plugins/cordova-plugin-splashscreen/www/windows/SplashScreenProxy.js",
+        "C:/Users/Naga Krishna/Ionic/login/www/js/controllers.js"
+    ]
+}
